@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>lab4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="lab4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lab4_files/libs/quarto-html/quarto.js"></script>
+<script src="lab4_files/libs/quarto-html/popper.min.js"></script>
+<script src="lab4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lab4_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lab4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lab4_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lab4_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lab4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lab4_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="lab-4" class="level1">
+<h1>Lab 4</h1>
+<p>Diego Franco - 20240</p>
+<section id="ejericicio-1" class="level2">
+<h2 class="anchored" data-anchor-id="ejericicio-1">Ejericicio 1</h2>
+<ol type="1">
+<li>Defina un conjunto de reglas para el comportamiento del enemigo, como patrones de movimiento y decisiones de ataque.</li>
+<li>Implemente una simulación de Monte Carlo que genere posibles resultados del comportamiento del enemigo durante una serie de turnos.</li>
+<li>Analice la distribución de los posibles resultados y determine la probabilidad de éxito o fracaso del jugador.</li>
+<li>Ajuste las reglas y los parámetros para explorar diferentes estrategias y resultados de los jugadores.</li>
+</ol>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de reglas y parámetros</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>NUM_SIMULATIONS <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>NUM_TURNS <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>PLAYER_POSITION <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ENEMY_POSITION <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_enemy_behavior():</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    player_alive_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(NUM_SIMULATIONS):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        enemy_position <span class="op">=</span> ENEMY_POSITION</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(NUM_TURNS):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            possible_moves <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            move <span class="op">=</span> random.choice(possible_moves)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            enemy_position <span class="op">=</span> (enemy_position[<span class="dv">0</span>] <span class="op">+</span> move[<span class="dv">0</span>], enemy_position[<span class="dv">1</span>] <span class="op">+</span> move[<span class="dv">1</span>])</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> enemy_position <span class="op">==</span> PLAYER_POSITION:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                player_alive_count <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        player_alive_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    success_probability <span class="op">=</span> player_alive_count <span class="op">/</span> NUM_SIMULATIONS</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> success_probability</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    success_probabilities <span class="op">=</span> []</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(NUM_SIMULATIONS):</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        success_probabilities.append(simulate_enemy_behavior())</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Crear la gráfica de barras</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    plt.hist(success_probabilities, bins<span class="op">=</span><span class="dv">20</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Probabilidad de éxito del jugador'</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Frecuencia relativa'</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Distribución de la probabilidad de éxito del jugador'</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="lab4_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Como se puede ver en el gráfico, la probabilidad más alta de ganar es de 0.976 con una frecuencia relativa mayor a 250.</p>
+</section>
+<section id="ejericio-2" class="level2">
+<h2 class="anchored" data-anchor-id="ejericio-2">Ejericio 2</h2>
+<ol type="1">
+<li>Implemente la fórmula de Black-Scholes para calcular el precio teórico de la opción.</li>
+<li>Simule las trayectorias del precio de las acciones mediante el movimiento browniano geométrico.</li>
+<li>Calcule el pago de cada camino y promedielos para estimar el precio de la opción.</li>
+</ol>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> black_scholes_call(S, K, r, T, sigma):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (math.log(S <span class="op">/</span> K) <span class="op">+</span> (r <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> sigma <span class="op">**</span> <span class="dv">2</span>) <span class="op">*</span> T) <span class="op">/</span> (sigma <span class="op">*</span> math.sqrt(T))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> d1 <span class="op">-</span> sigma <span class="op">*</span> math.sqrt(T)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> S <span class="op">*</span> norm.cdf(d1) <span class="op">-</span> K <span class="op">*</span> math.exp(<span class="op">-</span>r <span class="op">*</span> T) <span class="op">*</span> norm.cdf(d2)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> monte_carlo_option_price(S, K, r, T, sigma, num_paths, num_steps):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> T <span class="op">/</span> num_steps</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    total_payoff <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_paths):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        price <span class="op">=</span> S</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            z <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            price <span class="op">*=</span> math.exp((r <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sigma <span class="op">**</span> <span class="dv">2</span>) <span class="op">*</span> dt <span class="op">+</span> sigma <span class="op">*</span> math.sqrt(dt) <span class="op">*</span> z)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        payoff <span class="op">=</span> <span class="bu">max</span>(price <span class="op">-</span> K, <span class="dv">0</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        total_payoff <span class="op">+=</span> payoff</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    option_price <span class="op">=</span> total_payoff <span class="op">/</span> num_paths</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> option_price</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> <span class="dv">100</span>   <span class="co"># Precio actual del activo subyacente</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">100</span>   <span class="co"># Precio de ejercicio</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.05</span>  <span class="co"># Tasa de interés libre de riesgo</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">1</span>     <span class="co"># Tiempo hasta la expiración</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">0.2</span>  <span class="co"># Volatilidad del activo subyacente</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>num_paths <span class="op">=</span> <span class="dv">100000</span>  <span class="co"># Número de trayectorias simuladas</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>num_steps <span class="op">=</span> <span class="dv">252</span>     <span class="co"># Número de pasos en cada trayectoria</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>bs_price <span class="op">=</span> black_scholes_call(S, K, r, T, sigma)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>mc_price <span class="op">=</span> monte_carlo_option_price(S, K, r, T, sigma, num_paths, num_steps)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Precio de opción (Black-Scholes):"</span>, bs_price)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Precio de opción (Monte Carlo):"</span>, mc_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Precio de opción (Black-Scholes): 10.450583572185565
+Precio de opción (Monte Carlo): 11.024032071204276</code></pre>
+</div>
+</div>
+</section>
+<section id="ejericio-3" class="level2">
+<h2 class="anchored" data-anchor-id="ejericio-3">Ejericio 3</h2>
+<ol type="1">
+<li>Defina las probabilidades de varios eventos de ataques cibernéticos (por ejemplo, phishing, malware).</li>
+<li>Asigne valores de impacto potencial a cada evento (p.&nbsp;ej., pérdida de datos, impacto financiero).</li>
+<li>Implemente una simulación de Monte Carlo para estimar el nivel de riesgo general.</li>
+<li>Analice el impacto de diferentes probabilidades de ataques cibernéticos en el riesgo general.</li>
+</ol>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de impacto potencial (ejemplo)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>impacto_phishing <span class="op">=</span> [<span class="dv">100000</span>, <span class="dv">200000</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>impacto_malware <span class="op">=</span> [<span class="dv">50000</span>, <span class="dv">100000</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de simulaciones</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>num_simulaciones <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de diferentes probabilidades de ataques cibernéticos para probar</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>probabilidades_phishing <span class="op">=</span> [<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>probabilidades_malware <span class="op">=</span> [<span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para simular una iteración</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simular_iteracion(prob_phishing, prob_malware):</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    impacto_total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> random.random() <span class="op">&lt;</span> prob_phishing:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        impacto_total <span class="op">+=</span> random.randint(impacto_phishing[<span class="dv">0</span>], impacto_phishing[<span class="dv">1</span>])</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> random.random() <span class="op">&lt;</span> prob_malware:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        impacto_total <span class="op">+=</span> random.randint(impacto_malware[<span class="dv">0</span>], impacto_malware[<span class="dv">1</span>])</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> impacto_total</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar simulaciones con diferentes probabilidades de ataques</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> prob_p <span class="kw">in</span> probabilidades_phishing:</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> prob_m <span class="kw">in</span> probabilidades_malware:</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        resultados <span class="op">=</span> [simular_iteracion(prob_p, prob_m) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_simulaciones)]</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        riesgo_promedio <span class="op">=</span> <span class="bu">sum</span>(resultados) <span class="op">/</span> num_simulaciones</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Probabilidad Phishing: </span><span class="sc">{</span>prob_p<span class="sc">:.2f}</span><span class="ss">, Probabilidad Malware: </span><span class="sc">{</span>prob_m<span class="sc">:.2f}</span><span class="ss">, Riesgo promedio estimado: </span><span class="sc">{</span>riesgo_promedio<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Probabilidad Phishing: 0.05, Probabilidad Malware: 0.01, Riesgo promedio estimado: 7927.16
+Probabilidad Phishing: 0.05, Probabilidad Malware: 0.05, Riesgo promedio estimado: 11623.80
+Probabilidad Phishing: 0.05, Probabilidad Malware: 0.10, Riesgo promedio estimado: 14953.63
+Probabilidad Phishing: 0.05, Probabilidad Malware: 0.15, Riesgo promedio estimado: 18954.66
+Probabilidad Phishing: 0.10, Probabilidad Malware: 0.01, Riesgo promedio estimado: 14893.85
+Probabilidad Phishing: 0.10, Probabilidad Malware: 0.05, Riesgo promedio estimado: 18663.88
+Probabilidad Phishing: 0.10, Probabilidad Malware: 0.10, Riesgo promedio estimado: 22473.32
+Probabilidad Phishing: 0.10, Probabilidad Malware: 0.15, Riesgo promedio estimado: 26487.43
+Probabilidad Phishing: 0.15, Probabilidad Malware: 0.01, Riesgo promedio estimado: 23624.28
+Probabilidad Phishing: 0.15, Probabilidad Malware: 0.05, Riesgo promedio estimado: 26258.88
+Probabilidad Phishing: 0.15, Probabilidad Malware: 0.10, Riesgo promedio estimado: 28861.76
+Probabilidad Phishing: 0.15, Probabilidad Malware: 0.15, Riesgo promedio estimado: 33772.41
+Probabilidad Phishing: 0.20, Probabilidad Malware: 0.01, Riesgo promedio estimado: 30607.13
+Probabilidad Phishing: 0.20, Probabilidad Malware: 0.05, Riesgo promedio estimado: 34297.59
+Probabilidad Phishing: 0.20, Probabilidad Malware: 0.10, Riesgo promedio estimado: 36452.42
+Probabilidad Phishing: 0.20, Probabilidad Malware: 0.15, Riesgo promedio estimado: 41678.40</code></pre>
+</div>
+</div>
+<p>Los resultados de la simulación indican que a medida que las probabilidades de phishing y malware aumentan, el riesgo promedio estimado también aumenta. Se identifican combinaciones de probabilidades que resultan en mayores riesgos, lo que destaca escenarios más vulnerables. Estos datos pueden guiar decisiones de seguridad, priorizando la mitigación en áreas de mayor riesgo.</p>
+</section>
+<section id="ejericio-4" class="level2">
+<h2 class="anchored" data-anchor-id="ejericio-4">Ejericio 4</h2>
+<ol type="1">
+<li>Defina correctamente el problema, dejando claro las suposiciones y datos</li>
+<li>Defina como Monte Carlo puede ayudarle a solucionar dicho problema</li>
+<li>Escriba un script en su lenguaje de programación favorito solucionando el problema</li>
+<li>Analice correctamente los resultados, extrayendo cualquier insight que considere valioso</li>
+</ol>
+<section id="descripcción-del-problema" class="level3">
+<h3 class="anchored" data-anchor-id="descripcción-del-problema">Descripcción del problema</h3>
+<p>Supongamos que somos responsables de la gestión de recursos hídricos en una región. Necesitamos planificar el uso eficiente de los recursos disponibles para satisfacer las necesidades de suministro de agua en la región, considerando las variaciones en las precipitaciones. Queremos tomar decisiones informadas sobre la construcción de infraestructuras, como embalses y sistemas de riego, para asegurarnos de que habrá suficiente agua para abastecer las demandas en diferentes condiciones climáticas.</p>
+<p>Suposiciones y datos:</p>
+<ul>
+<li>Tenemos datos históricos de precipitaciones en la región.</li>
+<li>Queremos simular diferentes escenarios de precipitaciones para los próximos años.</li>
+<li>Queremos estimar cómo cambiará el nivel de agua en los embalses y la disponibilidad de agua para riego bajo diferentes condiciones climáticas.</li>
+</ul>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_precipitation(num_years, historical_precipitation_mean, historical_precipitation_std):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    simulations <span class="op">=</span> []</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_years):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        simulated_precipitation <span class="op">=</span> np.random.normal(historical_precipitation_mean, historical_precipitation_std)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        simulations.append(simulated_precipitation)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> simulations</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_results(simulated_precipitations, water_demand):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    deficits <span class="op">=</span> []</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> precipitation <span class="kw">in</span> simulated_precipitations:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        water_available <span class="op">=</span> <span class="bu">max</span>(precipitation <span class="op">-</span> water_demand, <span class="dv">0</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        deficits.append(water_demand <span class="op">-</span> water_available)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> deficits</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos de entrada</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>historical_mean <span class="op">=</span> <span class="dv">800</span>  <span class="co"># mm de precipitación</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>historical_std <span class="op">=</span> <span class="dv">100</span>    <span class="co"># mm de precipitación</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>water_demand <span class="op">=</span> <span class="dv">1000</span>     <span class="co"># mm de agua</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulación de precipitaciones</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>simulated_precipitations <span class="op">=</span> simulate_precipitation(num_simulations, historical_mean, historical_std)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de resultados</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>deficits <span class="op">=</span> analyze_results(simulated_precipitations, water_demand)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>avg_deficit <span class="op">=</span> np.mean(deficits)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>chance_of_deficit <span class="op">=</span> np.mean(np.array(deficits) <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Promedio de déficit de agua: </span><span class="sc">{</span>avg_deficit<span class="sc">}</span><span class="ss"> mm"</span>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probabilidad de déficit de agua: </span><span class="sc">{</span>chance_of_deficit<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Promedio de déficit de agua: 999.1141531902823 mm
+Probabilidad de déficit de agua: 1.0</code></pre>
+</div>
+</div>
+<p>Promedio de déficit de agua: El promedio de déficit de agua es aproximadamente 999.11 mm. Esto significa que, en promedio, la región enfrenta una escasez de agua de alrededor de 999.11 mm en un año típico simulado. Este valor alto sugiere que la cantidad de precipitación generada en las simulaciones no es suficiente para satisfacer la demanda de agua establecida en 1000 mm.</p>
+<p>Probabilidad de déficit de agua: La probabilidad de déficit de agua es del 100%, lo que significa que en todas las simulaciones realizadas, hubo un déficit de agua en comparación con la demanda establecida. Esto indica que las precipitaciones simuladas en base a las distribuciones históricas no fueron capaces de cumplir con las necesidades de agua de la región en ningún año simulado.</p>
+<p>Dado que la probabilidad de déficit de agua es del 100%, es evidente que la región está experimentando escasez de agua en todas las simulaciones. Esto podría tener graves implicaciones para la disponibilidad de agua potable, riego agrícola y otros usos esenciales. Es posible que se necesiten medidas de adaptación y mitigación, como la construcción de infraestructuras hídricas más grandes, la implementación de prácticas de conservación de agua y la promoción de un uso más eficiente del recurso hídrico.</p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
